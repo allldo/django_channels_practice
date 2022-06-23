@@ -1,8 +1,8 @@
-from django.contrib import admin
-from django.urls import path, include
-from .views import main
+from django.urls import path
+from .views import peer1, peer2, peer
 
 urlpatterns = [
-    path('', main ),
-
+    path('', peer, name='peer'),
+    path('peer1/', peer1, name='peer1'),
+    path('peer2/', peer2, name='peer2'),
 ]

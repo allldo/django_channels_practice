@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,12 +26,13 @@ SECRET_KEY = 'django-insecure-9lb3^oevk3ro@iy%3d!&k*v688*9$aac^#!t0$t@2g^qkqry7h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 ASGI_APPLICATION = 'channel_practice.asgi.application'
 
 # Application definition
-
+NUMB_TURN_CREDENTIAL = config('NUMB_TURN_CREDENTIAL', default=None)
+NUMB_TURN_USERNAME = config('NUMB_TURN_USERNAME', default=None)
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
